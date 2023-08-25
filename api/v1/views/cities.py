@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""View API for State"""
+"""View API for City"""
 
 from api.v1.views import app_views
 from flask import abort, jsonify, request
@@ -16,10 +16,10 @@ def cities(state_id):
     if not state:
         abort(404)
 
-    cities = []
+    cities_list = []
     for city in state.cities:
         cities.append(city.to_dict())
-    return jsonify(cities)
+    return jsonify(cities_list)
 
 
 @app_views.route("/cities/<city_id>", methods=['GET'], strict_slashes=False)
