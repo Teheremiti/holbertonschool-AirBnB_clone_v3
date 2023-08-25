@@ -23,9 +23,10 @@ def state_id(state_id):
     if state is not None:
         return jsonify(state.to_dict())
     abort(404)
-    
 
-@app_views.route("/states/<state_id>", methods=['DELETE'], strict_slashes=False)
+
+@app_views.route("/states/<state_id>", methods=['DELETE'],
+                 strict_slashes=False)
 def del_state(state_id):
     """Delete a State by id"""
     state = storage.get(State, state_id)
